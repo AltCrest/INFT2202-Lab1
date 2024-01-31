@@ -3,3 +3,19 @@
   * styles.css
   * 
   */
+
+
+  body{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #808000;
+  }
+
+  #submit{
+    background-color: #e335ec;
+    border-style: outset;
+  }
+  #submit:hover{
+    color: aqua;
+  }
+
