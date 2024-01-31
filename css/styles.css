@@ -1,5 +1,5 @@
 /**
-  * John Barrios
+  * John Barrios and Nishan Shrestha
   * styles.css
   * 
   */
@@ -10,12 +10,14 @@
     font-family: 'Times New Roman', Times, serif;
     background-color: #808000;
   }
-
+  
   #submit{
     background-color: #e335ec;
     border-style: outset;
+    font-weight: bold;
   }
   #submit:hover{
     color: aqua;
+    background-color: #008080;
   }
 
