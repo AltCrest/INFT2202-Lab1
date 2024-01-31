@@ -11,3 +11,8 @@ window.onload = function() {
     document.getElementsByTagName("body")[0].innerHTML += "<nav class='navbar fixed-bottom navbar-light bg-light'><p>&copy; CopyRight 2024</p></nav>"
 
 }
+
+function submitClick() {
+
+    
+}
