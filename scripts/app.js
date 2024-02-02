@@ -1,5 +1,5 @@
 /**
- * John Barrios(100821013)
+ * John Barrios(100821013), Nishan Shrestha(100892525)
  * app.js
  * 02/02/24
  */
