@@ -1,5 +1,7 @@
 <!--
-    John Barrios
+    John Barrios(100821013)
+    index.html
+    02/02/24
 -->
 <!DOCTYPE html>
 <head lang="en">
@@ -41,28 +43,26 @@
           </div>
         </div>
       </nav>
-    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="./scripts/app.js"></script>
-
-    <br>
-    
-    <h1 id="contact">Contact Information</h1>
-    <form action="" method="POST" enctype="multipart/form-data" id="myForm">
+            
+      <h2 id="contact">Contact Information</h2>
+      <form action="" method="POST" enctype="multipart/form-data" id="myForm">
         <label for="name">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
         <input type="text" id="name" name="ContactName" required><br><br>
-
+        
         <label for="contactNumber">Contact Number:</label>
         <input type="tel" id="contactNumber" name="ContactNumber" required><br><br>
-
+        
         <label for="email">Email Address:&nbsp;&nbsp;&nbsp;&nbsp;</label>
         <input type="email" id="email" name="EmailAddress" required><br><br>
-
-        <label for="message">Short Message:</label>
+        
+        <label for="message">Message:</label>
         <textarea id="message" name="Contact-Message" rows="4" cols="50" required></textarea><br><br>
-
-        <button type="submit" id="submit" onclick="submitClick();">Submit</button>
-    </form>
-  
+        
+        <button type="submit" id="submit" onclick="submitClick(event);">Submit</button>
+      </form>
+      
+      <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+      <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="./scripts/app.js"></script>
 </body>
 </html>
