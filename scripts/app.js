@@ -1,6 +1,7 @@
 /**
  * John Barrios(100821013), Nishan Shrestha(100892525)
  * app.js
+ * INFT 2202
  * 02/02/24
  */
 
@@ -16,7 +17,7 @@ window.onload = function() {
     document.getElementsByTagName("li")[3].innerHTML = "<a class='nav-link' href='#'><span class='fa fa-info'></span> About Us</a> <li class='nav-item'><a class='nav-link' href='#'><span class='fa fa-users'></span> Human Resources</a></li>";
     
     // added a fixed bottom from copyright text
-    document.getElementsByTagName("body")[0].innerHTML += "<nav class='navbar fixed-bottom navbar-light bg-light'><p>&copy; CopyRight 2024</p></nav>"
+    document.getElementsByTagName("body")[0].innerHTML += "<nav class='navbar fixed-bottom navbar-light bg-dark' id='footer'><p>&copy; CopyRight 2024</p></nav>"
 }
 
 /**
