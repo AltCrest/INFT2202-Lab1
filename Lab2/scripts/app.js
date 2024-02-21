@@ -42,3 +42,14 @@ function submitClick(event) {
         window.location.href = "index.html"; 
     }, 3000);
 }
+
+class Contact
+{
+    constructor(contactName = "", emailAddress = "", contactNumber = "", contactMessage = "")
+    {
+        this.contactName = contactName;
+        this.emailAddress = emailAddress;
+        this.contactNumber = contactNumber;
+        this.contactMessage = contactMessage;
+    }
+}
