@@ -13,91 +13,53 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-<<<<<<< HEAD
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">INFT2202</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="/index.html"><span class="fa fa-home"></span> Home</a>
-          </li>
-          <li class="nav-item" id="products">
-            <a class="nav-link" href="#"><span class="fa fa-th"></span> Products</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><span class="fa fa-bell"></span> Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><span class="fa fa-info"></span> About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact.html"><span class="fa fa-phone"></span> Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/login.html"><span class="fa fa-phone"></span> Log In</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/register.html"><span class="fa fa-phone"></span> Register</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>      
-  <div class="login-container">
-      <h2>Login</h2>
-      <form class="login-form" action="#" method="POST">
-          <input type="text" name="username" placeholder="Username" required>
-          <input type="password" name="password" placeholder="Password" required>
-          <button type="submit">Login</button>
-      </form>
-  </div>
-  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="./scripts/app.js"></script>
-=======
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">INFT2202</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"><span class="fa fa-home"></span> Home</a>
-              </li>
-              <li class="nav-item" id="products">
-                <a class="nav-link" href="#"><span class="fa fa-th"></span> Products</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><span class="fa fa-bell"></span> Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><span class="fa fa-info"></span> About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><span class="fa fa-phone"></span> Contact Us</a>
-              </li>
-            </ul>
-          </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">INFT2202</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html"><span class="fa fa-home"></span> Home</a>
+            </li>
+            <li class="nav-item" id="products">
+              <a class="nav-link" href="#"><span class="fa fa-th"></span> Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><span class="fa fa-bell"></span> Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><span class="fa fa-info"></span> About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact.html"><span class="fa fa-phone"></span> Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/login.html"><span class="fa fa-phone"></span> Log In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/register.html"><span class="fa fa-phone"></span> Register</a>
+            </li>
+          </ul>
         </div>
-      </nav>      
-          <div class="login-container">
-              <h2>Login</h2>
-              <form class="login-form" action="#" method="POST">
-                <label for="username">Username: </label>
-                  <input type="text" name="username" placeholder="Username" required>
-                  <label for="password">Password: </label>
-                  <input type="password" name="password" placeholder="Password" required>
-                  <button type="submit" id="login">Login</button>
-              </form>
+      </div>
+    </nav>      
+    <div class="login-container">
+        <h2>Login</h2>
+        <form class="login-form" id="loginForm" method="POST">
+          <div id="errorMessage">
           </div>
-
-      
->>>>>>> 1de51d101da5c0221d8de800bb7ce648ce919668
+          <label for="username">Username: </label>
+            <input type="text" name="username" placeholder="Username" required>
+            <label for="password">Password: </label>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" id="login">Login</button>
+        </form>
+    </div>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./scripts/app.js"></script>
 </body>
 </html>

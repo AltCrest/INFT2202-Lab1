@@ -22,7 +22,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"><span class="fa fa-home"></span> Home</a>
+                <a class="nav-link" href="/index.html"><span class="fa fa-home"></span> Home</a>
               </li>
               <li class="nav-item" id="products">
                 <a class="nav-link" href="#"><span class="fa fa-th"></span> Products</a>
@@ -34,25 +34,33 @@
                 <a class="nav-link" href="#"><span class="fa fa-info"></span> About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><span class="fa fa-phone"></span> Contact Us</a>
+                <a class="nav-link" href="/contact.html"><span class="fa fa-phone"></span> Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login.html"><span class="fa fa-phone"></span> Log In</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/register.html"><span class="fa fa-phone"></span> Register</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     <div class="register-container">
-        <h2>Register</h2>
-        <form class="register-form" action="#" method="POST">
-            <label for="Firstname">Firstname: </label>
-            <input type="text" name="Firstname" placeholder="Please enter your firstname" required>
-            <label for="Lastname">Lastname: </label>
-            <input type="text" name="Lastname" placeholder="Please enter your lastname" required> <br><br>
-            <label for="email">Email: </label>
-            <input type="email" name="email" placeholder="Please enter your email address" required><br><br>
-            <label for="password">Password: </label>
-            <input type="password" name="password" placeholder="Please enter your password" required><br><br>
-            <button type="submit" id="register">Register</button>
-        </form>
+      <h2>Register</h2>
+      <form class="register-form" id="registerForm" method="POST">
+        <div id="errorMessage">
+        </div>
+        <label for="Firstname">Firstname: </label>
+        <input type="text" name="firstname" placeholder="Please enter your firstname" required>
+        <label for="Lastname">Lastname: </label>
+        <input type="text" name="lastname" placeholder="Please enter your lastname" required> <br><br>
+        <label for="email">Email: </label>
+        <input type="email" name="email" placeholder="Please enter your email address" required><br><br>
+        <label for="password">Password: </label>
+        <input type="password" name="password" placeholder="Please enter your password" required><br><br>
+        <button type="submit" id="register">Register</button>
+      </form>
     </div>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

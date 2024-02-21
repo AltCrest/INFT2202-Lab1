@@ -6,8 +6,6 @@
  */
 
 window.onload = function() {
-    // display a welcome page to the website
-
     // Change Products link to Projects
     document.getElementById("products").innerHTML = "<a class='nav-link' href='#' id='Projects'><span class='fa fa-th'></span> Projects</a>";
 
@@ -42,12 +40,13 @@ function submitClick(event) {
 }
 class Contact
 {
-    constructor(contactName = "", emailAddress = "", contactNumber = "", contactMessage = "")
+    constructor(username = "", password = "", firstname = "", lastname = "", email = "")
     {
-        this.contactName = contactName;
-        this.emailAddress = emailAddress;
-        this.contactNumber = contactNumber;
-        this.contactMessage = contactMessage;
+        this.username = username;
+        this.password = password;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
     }
 }
 
@@ -117,13 +116,6 @@ let app;
      */
     function DisplayLoginContent()
     {
-        function clearForm()
-        {
-            //document.getElementById("contactForm").reset();
-            $("#contactForm")[0].reset();
-            $('#errorMessage').hide();
-        }
-        
         function ValidateInput(selector, condition, errorMessage) {
             if (condition) {
                 // if failed
@@ -137,18 +129,9 @@ let app;
             }
         }
 
-        $("#contactName").change((e)=>
+        $("#username").blur((e)=>
         {
-            if( $("#contactName").length < 8)
-            {
-                console.log("Contact Name Too Short");
-            }
-            console.log("changed");
-        });
-
-        $("#contactName").blur((e)=>
-        {
-            validateInput("#contactName", ($("#contactName").val().length < 8), "Contact name is too short")
+            validateInput("#username", ($("#username").val().length > 20), "Contact name is too long")
         });
 
         $("#contactName").focus((e)=>
@@ -186,9 +169,9 @@ let app;
             $("#contactMessage").select();
         });
 
-        $("#contactForm").submit((e)=>
+        $("#loginForm").submit((e)=>
         {
-            if (document.getElementById("contactForm").checkValidity() == false) {
+            if (document.getElementById("loginForm").checkValidity() == false) {
                 e.preventDefault();
             }
             let contactName = $("#contactName").val();
