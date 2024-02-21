@@ -26,7 +26,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/index.html"><span class="fa fa-home"></span> Home</a>
+                <a class="nav-link" href="/index.html"><span class="fa fa-home"></span> Home</a>
               </li>
               <li class="nav-item" id="products">
                 <a class="nav-link" href="#"><span class="fa fa-th"></span> Products</a>
@@ -38,7 +38,7 @@
                 <a class="nav-link" href="#"><span class="fa fa-info"></span> About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/contact.html"><span class="fa fa-phone"></span> Contact Us</a>
+                <a class="nav-link active" aria-current="page" href="#"><span class="fa fa-phone"></span> Contact Us</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/login.html"><span class="fa fa-phone"></span> Log In</a>
@@ -50,7 +50,24 @@
           </div>
         </div>
       </nav>
-    
+            
+      <h3 id="contact">Contact Information</h3>
+      <form action="" method="POST" enctype="multipart/form-data" id="myForm">
+        <label for="name">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="text" id="name" name="ContactName" placeholder="Enter your Fullname"><br><br>
+        
+        <label for="contactNumber">Contact Number:</label>
+        <input type="tel" id="contactNumber" name="ContactNumber" placeholder="Enter your contact number"><br><br>
+        
+        <label for="email">Email Address:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="email" id="email" name="EmailAddress" placeholder="Enter your Email" required><br><br>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="Contact-Message" rows="4" cols="50" placeholder="Enter a message" required></textarea><br><br>
+        
+        <button type="submit" id="submit" onclick="submitClick(event);">Submit</button>
+      </form>
+      
       <script src="./node_modules/jquery/dist/jquery.min.js"></script>
       <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
       <script src="./scripts/app.js"></script>
