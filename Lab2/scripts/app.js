@@ -84,6 +84,9 @@ let app;
                 case "index":
                 DisplayHomePageContent();
                     break;
+                case "contact":
+                    DisplayContactContent();
+                    break;
                 case "login":
                     DisplayLoginContent();
                     break;
@@ -105,6 +108,10 @@ let app;
         navbar.insertAdjacentHTML('afterend', '<div><h2>Welcome To the Page</h2></div>');
     }
 
+    function DisplayContactContent()
+    {
+
+    }
     /**
      * display content and finctions for contact page
      */
