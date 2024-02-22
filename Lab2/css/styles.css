@@ -105,13 +105,6 @@
   color: gold;
   background-color: #008080;
 }
-.noError{
-  display: none;
-}
-.yesError{
-  display: block;
-  background-color: #f2dede;
-  border-color: #ebccd1;
-  color: #a94442;
-}
+
+
 

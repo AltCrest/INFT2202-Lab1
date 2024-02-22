@@ -38,11 +38,11 @@ function submitClick(event) {
         window.location.href = "index.html"; 
     }, 3000);
 }
-class Contact
+class Register
 {
-    constructor(username = "", password = "", firstname = "", lastname = "", email = "")
+    constructor(confPassword = "", password = "", firstname = "", lastname = "", email = "")
     {
-        this.username = username;
+        this.confPassword = confPassword;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -50,16 +50,11 @@ class Contact
     }
 }
 
-"use strict";
-//IIFE - Immediately Invoked Function Expression
-// mean? -> anonymous self-executing function
-
 let app;
 (function(app){
 
     // Declare Function Variables here...
-    console.log("%cDeclaring Variables", "color: red;")
-    let contactObject = new Contact();
+    let registerObject = new Register();
 
     /**
      * Variable initialization in this function
@@ -112,11 +107,16 @@ let app;
 
     }
     /**
-     * display content and functions for contact page
+     * display content and finctions for contact page
      */
     function DisplayLoginContent()
     {
-        function ValidateInput(selector, condition, errorMessage) {
+        function clearForm()
+        {
+            $("#loginForm")[0].reset();
+            $('#errorMessage').hide();
+        }
+        function validateInput(selector, condition, errorMessage) {
             if (condition) {
                 // if failed
                 $("#errorMessage").show();
@@ -129,9 +129,13 @@ let app;
             }
         }
 
+        let errorDiv = '<div id="errorMessage" class="alert alert-danger"></div>';
+        $('h2').after(errorDiv);
+        $("#errorMessage").hide();
+
         $("#username").blur((e)=>
         {
-            validateInput("#username", ($("#username").val().length > 20), "Contact name is too long")
+            validateInput("#username", ($("#username").val().length > 20), "username is too long")
         });
 
         $("#username").focus((e)=>
@@ -148,62 +152,85 @@ let app;
             $("#contactUs").after(newUsername);
             clearForm();
         });
-
     }
- 
-    function DisplayRegisterContent() {
-        let errorDiv = '<div class="noError" id="errorMessage"></div>';
-        $('h2').after(errorDiv);
-        // Add event listener for input fields
-        $('#FirstName, #LastName').on('input', function() {
-            // Get input values
-            const FirstName = $('#FirstName').val();
-            const LastName = $('#LastName').val();
-    
-            // Check if input length is less than 2
-            if (FirstName.length < 2 || LastName.length < 2) {
-                // Display error message
-                $('#ErrorMessage').text('First Name and Last Name must be at least 2 characters long.');
-                $('#ErrorMessage').show();
+
+    function DisplayRegisterContent()
+    {
+        function clearForm()
+        {
+            $("#registerForm")[0].reset();
+            $('#errorMessage').hide();
+        }
+        
+        function validateInput(selector, condition, errorMessage) {
+            if (condition) {
+                // if failed
+                $("#errorMessage").show();
+                $("#errorMessage").text(errorMessage);
+                $(selector).select();
+                $(selector).css("border", "2px solid red");
             } else {
-                // Hide error message
-                $('#ErrorMessage').hide();
+                $('#errorMessage').hide();
+                $(selector).css("border", "1px solid green");
             }
+        }
 
-            function DisplayRegisterContent() {
-                function clearForm() {
-                    $("#registerForm")[0].reset();
-                }
-        
-                $("#register").click((e) => {
-                    e.preventDefault();
-        
-                    let firstname = $("input[name='firstname']").val();
-                    let lastname = $("input[name='lastname']").val();
-                    let email = $("input[name='email']").val();
-                    let password = $("input[name='password']").val();
-        
-                    console.log(`Firstname: ${firstname}`);
-                    console.log(`Lastname: ${lastname}`);
-                    console.log(`Email: ${email}`);
-                    console.log(`Password: ${password}`);
-        
-                    registerObject.firstname = firstname;
-                    registerObject.lastname = lastname;
-                    registerObject.email = email;
-                    registerObject.password = password;
-                    console.log(registerObject);
-        
-                    clearForm();
-                });
-            }
-        
+        let errorDiv = '<div id="errorMessage" class="alert alert-danger"></div>';
+        $('h2').after(errorDiv);
+        $("#errorMessage").hide();
 
+        $("#firstname").blur((e)=>
+        {
+            validateInput("#firstname", ($("#firstname").val().length < 2), "Firstname is too short")
+        });
 
+        $("#firsname").focus((e) => {
+            $("#firstname").select();
+        });
 
+        $("#lastname").blur((e)=>
+        {
+            validateInput("#lastname", ($("#lastname").val().length < 2), "Lastname is too short")
+        });
+
+        $("#lastname").focus((e)=>
+        {
+            $("#lastname").select();
+        });
+
+        $("#email").blur((e) => {
+            validateInput("#email",($("#email").val().length < 8) || (!$("#email").val().includes("@")),"Invalid Email Address");
+        });
+
+        $("#password").blur((e) => {
+            validateInput("#password",($("#password").val().length < 6), "Invalid Password");
+        });
+
+        $("#confPassword").blur((e) => {
+            validateInput("#confPassword", ($("#confPassword").val() !== $("#password").val()), "Confirm that the passwords are the same")
+        });
+        
+        $("#register").click((e)=>
+        {
+            e.preventDefault();
+            let firstname = $("#firstname").val();
+            let lastname = $("#lastname").val();
+            let email = $("#email").val();
+            let password = $("#password").val();
+
+            console.log(`First Name: ${firstname}`);
+            console.log(`Last Name: ${lastname}`);
+            console.log(`Email: ${email}`);
+            console.log(`Password: ${password}`);
+
+            registerObject.firstname = firstname;
+            registerObject.lastname = lastname;
+            registerObject.email = email;
+            registerObject.password = password;
+            
+            clearForm();
         });
     }
-    
 
     /**
      * Main Program entry point is here
