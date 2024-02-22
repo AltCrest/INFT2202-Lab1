@@ -112,7 +112,7 @@ let app;
 
     }
     /**
-     * display content and finctions for contact page
+     * display content and functions for contact page
      */
     function DisplayLoginContent()
     {
@@ -150,12 +150,28 @@ let app;
         });
 
     }
-
-    function DisplayRegisterContent()
-    {
+ 
+    function DisplayRegisterContent() {
         let errorDiv = '<div class="noError" id="errorMessage"></div>';
         $('h2').after(errorDiv);
+        // Add event listener for input fields
+        $('#FirstName, #LastName').on('input', function() {
+            // Get input values
+            const FirstName = $('#FirstName').val();
+            const LastName = $('#LastName').val();
+    
+            // Check if input length is less than 2
+            if (FirstName.length < 2 || LastName.length < 2) {
+                // Display error message
+                $('#ErrorMessage').text('First Name and Last Name must be at least 2 characters long.');
+                $('#ErrorMessage').show();
+            } else {
+                // Hide error message
+                $('#ErrorMessage').hide();
+            }
+        });
     }
+    
 
     /**
      * Main Program entry point is here
