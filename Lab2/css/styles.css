@@ -26,83 +26,92 @@
   }
 
 
-        .register-form input[type="text"],
-        .register-form input[type="email"],
-        .register-form input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        .register-form button {
-            background-color: #4caf50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-        .register-form button:hover {
-            background-color: #45a049;
-        }
-        .login-container {
-          background-color: #fff;
-          border-radius: 5px;
-          padding: 20px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          width: 500px;
-          margin: auto;
-      }
-      .login-container h2 {
-          margin-top: 0;
-          text-align: center;
-      }
-      .login-form input[type="text"],
-      .login-form input[type="password"] {
-          width: 100%;
-          padding: 10px;
-          margin: 8px 0;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          box-sizing: border-box;
-      }
-      .login-form button {
-          background-color: #4caf50;
-          color: white;
-          padding: 14px 20px;
-          margin: 8px 0;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          width: 100%;
-      }
-      .login-form button:hover {
-          background-color: #45a049;
-      }
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.register-form button {
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+.register-form button:hover {
+    background-color: #45a049;
+}
+.login-container {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  margin: auto;
+}
+.login-container h2 {
+  margin-top: 0;
+  text-align: center;
+}
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.login-form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+.login-form button:hover {
+  background-color: #45a049;
+}
 
-        .register-container {
-            background-color: #fff;
-            border-radius: 5px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 500px;
-            /* Centering the container horizontally */
-            margin: auto;
-        }
-        .register-container h2 {
-            margin-top: 0;
-            text-align: center;
-        }
-        #register:hover{
-          color: pink;
-          background-color: #008080;
-        }
-        #login:hover{
-          color: gold;
-          background-color: #008080;
-        }
-     
+.register-container {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    /* Centering the container horizontally */
+    margin: auto;
+}
+.register-container h2 {
+    margin-top: 0;
+    text-align: center;
+}
+#register:hover{
+  color: pink;
+  background-color: #008080;
+}
+#login:hover{
+  color: gold;
+  background-color: #008080;
+}
+.noError{
+  display: none;
+}
+.yesError{
+  display: block;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+}
+

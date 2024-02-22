@@ -134,103 +134,27 @@ let app;
             validateInput("#username", ($("#username").val().length > 20), "Contact name is too long")
         });
 
-        $("#contactName").focus((e)=>
+        $("#username").focus((e)=>
         {
-            $("#contactName").select();
+            $("#username").select();
         });
 
-        $("#emailAddress").blur((e) => {
-            validateInput("#emailAddress", ($("#emailAddress").val().length < 8 ||(!$("#emailAddress").include("@"))), "Invalid Email Address")
-        })
-
-        $("#emailAddress").focus((e)=>
-        {
-            $("#emailAddress").select();
-        });
-
-        $("#contactNumber").blur((e) => {
-            let phoneNumberPatter = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
-            let phoneNumber = $("#contactNumber").val();
-
-            validateInput("#contactNumber", (!phoneNumberPatter.test(phoneNumber)), "Invalid number, please use the pattern (999)-999-9999");
-        })
-
-        $("#contactNumber").focus((e)=>
-        {
-            $("#contactNumber").select();
-        });
-
-        $("#contactMessage").blur((e) => {
-            validateInput("#contactMessage", ($("#contactMessage").val().length < 2), "Message is to short");
-        })
-
-        $("#contactMessage").focus((e)=>
-        {
-            $("#contactMessage").select();
-        });
-
-        $("#loginForm").submit((e)=>
-        {
-            if (document.getElementById("loginForm").checkValidity() == false) {
-                e.preventDefault();
-            }
-            let contactName = $("#contactName").val();
-            let emailAddress = $("#emailAddress").val();
-            let contactNumber = $("#contactNumber").val();
-            let contactMessage = $("#contactMessage").val();
-
-            console.log(`Contact Name: ${contactName}`);
-            console.log(`Email Address: ${emailAddress}`);
-            console.log(`Contact Number: ${contactNumber}`);
-            console.log(`Contact Message: ${contactMessage}`);
-
-            contactObject.contactName = contactName;
-            contactObject.emailAddress = emailAddress;
-            contactObject.contactNumber = contactNumber;
-            contactObject.contactMessage = contactMessage;
-
-            console.log(contactObject);
-
-            clearForm();
-        });
-        $("#submitButton").click((e)=>
+        $("#login").click((e)=>
         {
             e.preventDefault();
-            let contactName = $("#contactName").val();
-            let emailAddress = $("#emailAddress").val();
-            let contactNumber = $("#contactNumber").val();
-            let contactMessage = $("#contactMessage").val();
+            let username = $("#username").val();
 
-            console.log(`Contact Name: ${contactName}`);
-            console.log(`Email Address: ${emailAddress}`);
-            console.log(`Contact Number: ${contactNumber}`);
-            console.log(`Contact Message: ${contactMessage}`);
-
-            contactObject.contactName = contactName;
-            contactObject.emailAddress = emailAddress;
-            contactObject.contactNumber = contactNumber;
-            contactObject.contactMessage = contactMessage;
-
-            console.log(contactObject);
-
+            let newUsername = `<li class='nav-item'><a class='nav-link' href='#'><span class='fa fa-users'></span> ${username}</a></li>`;
+            $("#contactUs").after(newUsername);
             clearForm();
         });
 
-        $("#resetButton").click((e)=>
-        {
-            e.preventDefault();
-            if(confirm("Are You Sure?"))
-            {
-                clearForm();
-            }
-
-            
-        });
     }
 
     function DisplayRegisterContent()
     {
-
+        let errorDiv = '<div class="noError" id="errorMessage"></div>';
+        $('h2').after(errorDiv);
     }
 
     /**
