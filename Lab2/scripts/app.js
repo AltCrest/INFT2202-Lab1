@@ -169,6 +169,38 @@ let app;
                 // Hide error message
                 $('#ErrorMessage').hide();
             }
+
+            function DisplayRegisterContent() {
+                function clearForm() {
+                    $("#registerForm")[0].reset();
+                }
+        
+                $("#register").click((e) => {
+                    e.preventDefault();
+        
+                    let firstname = $("input[name='firstname']").val();
+                    let lastname = $("input[name='lastname']").val();
+                    let email = $("input[name='email']").val();
+                    let password = $("input[name='password']").val();
+        
+                    console.log(`Firstname: ${firstname}`);
+                    console.log(`Lastname: ${lastname}`);
+                    console.log(`Email: ${email}`);
+                    console.log(`Password: ${password}`);
+        
+                    registerObject.firstname = firstname;
+                    registerObject.lastname = lastname;
+                    registerObject.email = email;
+                    registerObject.password = password;
+                    console.log(registerObject);
+        
+                    clearForm();
+                });
+            }
+        
+
+
+
         });
     }
     
