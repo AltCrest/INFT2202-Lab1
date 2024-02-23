@@ -54,7 +54,6 @@ let app;
         let name = window.location.pathname;
 
         let pageName = name.substring(1, name.length - 5);
-
         switch(pageName)
             {
                 case "Lab2/index":
@@ -75,7 +74,6 @@ let app;
             }
 
         // add a class of active to the active link
-        $("#"+pageName).addClass("active");
     }
 
     /**
