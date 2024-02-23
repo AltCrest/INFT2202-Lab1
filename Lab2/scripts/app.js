@@ -57,16 +57,16 @@ let app;
 
         switch(pageName)
             {
-                case "index":
+                case "Lab2/index":
                 DisplayHomePageContent();
                     break;
-                case "contact":
+                case "Lab2/contact":
                     DisplayContactContent();
                     break;
-                case "login":
+                case "Lab2/login":
                     DisplayLoginContent();
                     break;
-                case "register":
+                case "Lab2/register":
                     DisplayRegisterContent();
                     break;
                 default:
@@ -83,8 +83,8 @@ let app;
      */
     function DisplayHomePageContent()
     {
-        var navbar = document.querySelector(".navbar");
-        navbar.insertAdjacentHTML('afterend', '<div><h2>Welcome To the Page</h2></div>');
+        let welcome = '<div><h2>Welcome To the Page</h2></div>';
+        $("#mainNav").after(welcome);
     }
 
     /**
@@ -111,7 +111,7 @@ let app;
 
             // Start a timer then redirect to HomePage after 3 seconds
             setTimeout(() => {
-                window.location.href = "index.html"; 
+                window.location.href = "Lab2/index.html"; 
             }, 3000);
         }
     }
