@@ -42,8 +42,7 @@ let app;
      */
     function Start()
     {
-       PageSwitcher();   
-
+        PageSwitcher();   
         Main();
     }
 
