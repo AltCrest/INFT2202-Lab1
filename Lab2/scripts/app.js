@@ -38,11 +38,10 @@ function submitClick(event) {
         window.location.href = "index.html"; 
     }, 3000);
 }
-class Register
+class User
 {
-    constructor(confPassword = "", password = "", firstname = "", lastname = "", email = "")
+    constructor(password = "", firstname = "", lastname = "", email = "")
     {
-        this.confPassword = confPassword;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -54,7 +53,7 @@ let app;
 (function(app){
 
     // Declare Function Variables here...
-    let registerObject = new Register();
+    let userObject = new User();
 
     /**
      * Variable initialization in this function
@@ -164,16 +163,16 @@ let app;
         
         function validateInput(selector, condition, errorMessage) {
             if (condition) {
-                // if failed
-                $("#errorMessage").show();
-                $("#errorMessage").text(errorMessage);
-                $(selector).select();
-                $(selector).css("border", "2px solid red");
+              // if failed 
+              $("#errorMessage").show();
+              $("#errorMessage").text(errorMessage);
+              $(selector).select();
+              $(selector).css("border", "2px solid red");
             } else {
-                $('#errorMessage').hide();
-                $(selector).css("border", "1px solid green");
+              $('#errorMessage').hide();
+              $(selector).css("border", "1px solid green"); 
             }
-        }
+          }
 
         let errorDiv = '<div id="errorMessage" class="alert alert-danger"></div>';
         $('h2').after(errorDiv);
@@ -184,9 +183,10 @@ let app;
             validateInput("#firstname", ($("#firstname").val().length < 2), "Firstname is too short")
         });
 
-        $("#firsname").focus((e) => {
+        $("#firstname").focus((e) => {
             $("#firstname").select();
         });
+        
 
         $("#lastname").blur((e)=>
         {
@@ -201,9 +201,19 @@ let app;
         $("#email").blur((e) => {
             validateInput("#email",($("#email").val().length < 8) || (!$("#email").val().includes("@")),"Invalid Email Address");
         });
+        
+        $("#email").focus((e)=> {
+            $("#email").select();
+        });
+        
 
         $("#password").blur((e) => {
             validateInput("#password",($("#password").val().length < 6), "Invalid Password");
+        });
+
+        $("#password").focus((e)=>
+        {
+            $("#password").select();
         });
 
         $("#confPassword").blur((e) => {
@@ -218,15 +228,12 @@ let app;
             let email = $("#email").val();
             let password = $("#password").val();
 
-            console.log(`First Name: ${firstname}`);
-            console.log(`Last Name: ${lastname}`);
-            console.log(`Email: ${email}`);
-            console.log(`Password: ${password}`);
+            userObject.firstname = firstname;
+            userObject.lastname = lastname;
+            userObject.email = email;
+            userObject.password = password;
 
-            registerObject.firstname = firstname;
-            registerObject.lastname = lastname;
-            registerObject.email = email;
-            registerObject.password = password;
+            console.log(userObject);
             
             clearForm();
         });
