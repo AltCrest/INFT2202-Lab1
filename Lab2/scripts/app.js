@@ -2,7 +2,7 @@
  * John Barrios(100821013), Nishan Shrestha(100892525)
  * app.js
  * INFT 2202
- * 02/02/24
+ * 02/22/24
  */
 
 window.onload = function() {
@@ -16,28 +16,8 @@ window.onload = function() {
     document.getElementsByTagName("body")[0].innerHTML += "<nav class='navbar fixed-bottom navbar-light bg-dark' id='footer'><p>&copy; CopyRight 2024</p></nav>"
 }
 
-/**
- * Handles the submission of click event
- * @param {Event} event 
- */
-function submitClick(event) {
-    // prevent default submission
-    event.preventDefault();
-
-    // Get user input values
-    const name = document.getElementById("name").value;
-    const contactNumber = document.getElementById("contactNumber").value;
-    const email = document.getElementById("email").value;
-    const msg = document.getElementById("message").value;
-
-    // Log user information to console
-    console.log(`Name: ${name}\ncontactNumber: ${contactNumber}\nEmail: ${email}\nUser Message: ${msg}`);
-
-    // Start a timer then redirect to HomePage after 3 seconds
-    setTimeout(() => {
-        window.location.href = "index.html"; 
-    }, 3000);
-}
+//----------------------- LAB 2 START ------------------------------------
+// Create a user class with constructor to store new users.
 class User
 {
     constructor(password = "", firstname = "", lastname = "", email = "")
@@ -49,10 +29,11 @@ class User
     }
 }
 
+("use strict");
 let app;
 (function(app){
 
-    // Declare Function Variables here...
+    // Declare Function Variables
     let userObject = new User();
 
     /**
@@ -66,6 +47,9 @@ let app;
         Main();
     }
 
+    /**
+     * run the IIFC on selected html links
+     */
     function PageSwitcher()
     {
         let name = window.location.pathname;
@@ -91,30 +75,60 @@ let app;
                     break;
             }
 
-            // add a class of active to the active link
+        // add a class of active to the active link
         $("#"+pageName).addClass("active");
     }
 
+    /**
+     * display content and functions for Home page
+     */
     function DisplayHomePageContent()
     {
         var navbar = document.querySelector(".navbar");
         navbar.insertAdjacentHTML('afterend', '<div><h2>Welcome To the Page</h2></div>');
     }
 
+    /**
+     * display content and functions for Contact page
+     */
     function DisplayContactContent()
     {
+        /**
+         * Handles the submission of click event
+         * @param {Event} event 
+         */
+        function submitClick(event) {
+            // prevent default submission
+            event.preventDefault();
 
+            // Get user input values
+            const name = document.getElementById("name").value;
+            const contactNumber = document.getElementById("contactNumber").value;
+            const email = document.getElementById("email").value;
+            const msg = document.getElementById("message").value;
+
+            // Log user information to console
+            console.log(`Name: ${name}\ncontactNumber: ${contactNumber}\nEmail: ${email}\nUser Message: ${msg}`);
+
+            // Start a timer then redirect to HomePage after 3 seconds
+            setTimeout(() => {
+                window.location.href = "index.html"; 
+            }, 3000);
+        }
     }
     /**
-     * display content and finctions for contact page
+     * display content and functions for Login page
      */
     function DisplayLoginContent()
     {
+        // clear the form once called
         function clearForm()
         {
             $("#loginForm")[0].reset();
             $('#errorMessage').hide();
         }
+
+        // validation for user input as well as error message handling
         function validateInput(selector, condition, errorMessage) {
             if (condition) {
                 // if failed
@@ -128,10 +142,12 @@ let app;
             }
         }
 
+        // added a div to place error messages
         let errorDiv = '<div id="errorMessage" class="alert alert-danger"></div>';
         $('h2').after(errorDiv);
         $("#errorMessage").hide();
 
+        // Username validation
         $("#username").blur((e)=>
         {
             validateInput("#username", ($("#username").val().length > 20), "username is too long")
@@ -142,28 +158,41 @@ let app;
             $("#username").select();
         });
 
-        $("#login").click((e)=>
-        {
-            e.preventDefault();
-            let username = $("#username").val();
+        // password validation
+        $("#password").blur((e) => {
+            validateInput("#password",($("#password").val().length < 6), "Invalid Password");
+        });
 
-            let newUsername = `<li class='nav-item'><a class='nav-link' href='#'><span class='fa fa-users'></span> ${username}</a></li>`;
+        // handles login button click
+        $("#login").click((e) => 
+        {   
+            // prevent default submission
+            e.preventDefault();
+
+            // add the user's username in between contact us and Log in
+            let username = $("#username").val();
+            let newUsername = `<li class='nav-item'><a class='nav-link' href='#'><span class='fa fa-user-circle'></span> ${username}</a></li>`;
             $("#contactUs").after(newUsername);
+
             clearForm();
         });
-    }
+    };
 
+    /**
+     * display content and functions for Register page
+     */
     function DisplayRegisterContent()
-    {
+    {   
+        // reset the form
         function clearForm()
         {
             $("#registerForm")[0].reset();
             $('#errorMessage').hide();
         }
         
+        // validate user input and update error messages
         function validateInput(selector, condition, errorMessage) {
             if (condition) {
-              // if failed 
               $("#errorMessage").show();
               $("#errorMessage").text(errorMessage);
               $(selector).select();
@@ -174,10 +203,12 @@ let app;
             }
           }
 
+        // create a div to display error messages
         let errorDiv = '<div id="errorMessage" class="alert alert-danger"></div>';
         $('h2').after(errorDiv);
         $("#errorMessage").hide();
 
+        // validate firstname field
         $("#firstname").blur((e)=>
         {
             validateInput("#firstname", ($("#firstname").val().length < 2), "Firstname is too short")
@@ -187,7 +218,7 @@ let app;
             $("#firstname").select();
         });
         
-
+        // validate lastname field
         $("#lastname").blur((e)=>
         {
             validateInput("#lastname", ($("#lastname").val().length < 2), "Lastname is too short")
@@ -198,6 +229,7 @@ let app;
             $("#lastname").select();
         });
 
+        // validate email field
         $("#email").blur((e) => {
             validateInput("#email",($("#email").val().length < 8) || (!$("#email").val().includes("@")),"Invalid Email Address");
         });
@@ -206,7 +238,7 @@ let app;
             $("#email").select();
         });
         
-
+        // validate password field
         $("#password").blur((e) => {
             validateInput("#password",($("#password").val().length < 6), "Invalid Password");
         });
@@ -216,23 +248,30 @@ let app;
             $("#password").select();
         });
 
+        // make sures that both passwords are the same
         $("#confPassword").blur((e) => {
             validateInput("#confPassword", ($("#confPassword").val() !== $("#password").val()), "Confirm that the passwords are the same")
         });
         
+        // handles the register button click
         $("#register").click((e)=>
         {
+            // prevent default submission
             e.preventDefault();
+
+            // gathers the values form the fields
             let firstname = $("#firstname").val();
             let lastname = $("#lastname").val();
             let email = $("#email").val();
             let password = $("#password").val();
 
+            // log user information in User object
             userObject.firstname = firstname;
             userObject.lastname = lastname;
             userObject.email = email;
             userObject.password = password;
 
+            // log info on console
             console.log(userObject);
             
             clearForm();
@@ -246,9 +285,7 @@ let app;
     function Main()
     {
        
-    }
-    
-    
+    }  
 
     window.addEventListener("load", Start);
 })(app || (app = {}));
