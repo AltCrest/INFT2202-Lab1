@@ -389,7 +389,7 @@
           sessionStorage.clear();
           
           // redirect back to login
-          location.href = "/login";
+          location.href = "/index.html";
         });
         
         // make it look like each nav item is an active link
@@ -398,6 +398,7 @@
           $(this).css('cursor', 'pointer');
         });
 
+        // insert task-list to the navbar after user login
         $(`<li class="nav-item">
             <a id="task-list" class="nav-link" aria-current="page"><i class="fas fa-tasks"></i> Task List</a>
         </li>`).insertBefore("#loginListItem");
@@ -488,7 +489,9 @@
      */
     function DisplayTaskList()
     {
+        // only allow users to access
         authGuard();
+
         let messageArea = $("#messageArea");
         messageArea.hide();
         let taskInput = $("#taskTextInput");

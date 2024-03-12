@@ -5,6 +5,6 @@
     if(sessionStorage.getItem("user"))
     {
     // redirect to the secure area
-    location.href = "index.html";
+    location.href = "/index.html";
     }
 })();
