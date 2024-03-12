@@ -438,6 +438,7 @@
         case "login": return displayLogin;
         case "register": return displayRegister;
         case "404": return display404;
+        case "task-list": return DisplayTaskList;
         default:
           console.error("ERROR: callback does not exist: " + activeLink);
           break;
