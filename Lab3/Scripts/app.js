@@ -6,7 +6,7 @@
 
 "use strict";
 
-((core) =>
+(() =>
 {
     /**
      * Inject the Navigation bar into the Header element and highlight the active link based on the pageName parameter
@@ -382,20 +382,25 @@
         `<a id="logout" class="nav-link" aria-current="page"><i class="fas fa-sign-out-alt"></i> Logout</a>`
         );
 
+        
         $("#logout").on("click", function()
         {
           // perform logout
           sessionStorage.clear();
-
+          
           // redirect back to login
           location.href = "/login";
         });
-
+        
         // make it look like each nav item is an active link
         $("#logout").on("mouseover", function()
         {
           $(this).css('cursor', 'pointer');
         });
+
+        $(`<li class="nav-item">
+            <a id="task-list" class="nav-link" aria-current="page"><i class="fas fa-tasks"></i> Task List</a>
+        </li>`).insertBefore("#loginListItem");
        
         $(`<li class="nav-item">
         <a id="contact-list" class="nav-link" aria-current="page"><i class="fas fa-users fa-lg"></i> Contact List</a>
