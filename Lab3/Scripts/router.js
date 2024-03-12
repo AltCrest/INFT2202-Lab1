@@ -96,13 +96,14 @@ router.AddTable(["/",
                  "/projects", 
                  "/register", 
                  "/login", 
-                 "/edit"]);
+                 "/edit",
+                 "/task-list"]);
                 
 let route = location.pathname; // alias for location.pathname
 
 if(router.Find(route) > -1)
 {
-    router.ActiveLink = (route == "/") ? "home" : route.substring(1)
+    router.ActiveLink = (route == "./") ? "home" : route.substring(1)
 }
 else
 {
