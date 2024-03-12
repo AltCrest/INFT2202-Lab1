@@ -327,8 +327,8 @@
           // hide any error message
           messageArea.removeAttr("class").hide();
 
-          // redirect user to secure area - contact-list.html
-          location.href = "/contact-list";
+          // redirect user to secure area - index.html
+          location.href = "/index.html";
         }
         else
         {
@@ -488,6 +488,7 @@
      */
     function DisplayTaskList()
     {
+        authGuard();
         let messageArea = $("#messageArea");
         messageArea.hide();
         let taskInput = $("#taskTextInput");
