@@ -281,8 +281,9 @@
         // hide any error message
         messageArea.removeAttr("class").hide();
 
-        // redirect user to secure area - index.html
-        location.href = "/index.html";
+        // redirect user to secure area - contact-list.html
+        loadHeader("contact-list");
+        loadContent("contact-list", ActiveLinkCallBack("contact-list"));
       }
       else {
         // display an error message
@@ -311,7 +312,8 @@
       // clear the login form
       document.forms[0].reset();
       // return to the home page
-      location.href = "/home";
+      loadHeader("home");
+      loadContent("home", ActiveLinkCallBack("home"));
     });
   }
 
@@ -333,7 +335,8 @@
         sessionStorage.clear();
 
         // redirect back to login
-        location.href = "/index.html";
+        loadHeader("login");
+        loadContent("login", ActiveLinkCallBack("login"));
       });
 
       // make it look like each nav item is an active link
@@ -361,7 +364,8 @@
   function authGuard() {
     if (!sessionStorage.getItem("user")) {
       // redirect back to login page
-      location.href = "/login";
+      loadHeader("login");
+      loadContent("login", ActiveLinkCallBack("login"));
     }
   }
 

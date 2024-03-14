@@ -5,6 +5,7 @@
     if(sessionStorage.getItem("user"))
     {
     // redirect to the secure area
-    location.href = "/index.html";
+    loadHeader("task-list");
+    loadContent("task-list", ActiveLinkCallBack("task-list"));
     }
 })();
