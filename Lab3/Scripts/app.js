@@ -1,4 +1,6 @@
-/* custom JavaScript goes here */
+// John Allen Barrios and Nishan Shrestha
+// app.js
+// 03/12/24
 
 //IIFE - Immediately Invoked Function Expression
 //AKA - Anonymous Self-Executing Function
@@ -21,8 +23,8 @@
 
       $(`#${pageName}`).addClass("active"); // highlight active link
 
-      // loop through each anchor tag in the unordered list and 
-      // add an event listener / handler to allow for 
+      // loop through each anchor tag in the unordered list and
+      // add an event listener / handler to allow for
       // content injection
       $("a").on("click", function () {
         $(`#${router.ActiveLink}`).removeClass("active"); // removes highlighted link
@@ -34,13 +36,13 @@
 
       // make it look like each nav item is an active link
       $("a").on("mouseover", function () {
-        $(this).css('cursor', 'pointer');
+        $(this).css("cursor", "pointer");
       });
     });
   }
 
   /**
-   * Inject page content in the main element 
+   * Inject page content in the main element
    *
    * @param {string} pageName
    * @param {function} callback
@@ -53,7 +55,6 @@
 
       callback();
     });
-
   }
 
   function loadFooter() {
@@ -63,33 +64,29 @@
     });
   }
 
-  function displayHome() {
+  function displayHome() {}
 
-  }
+  function displayAbout() {}
 
-  function displayAbout() {
+  function displayProjects() {}
 
-  }
-
-  function displayProjects() {
-
-  }
-
-  function displayServices() {
-
-  }
+  function displayServices() {}
 
   function testFullName() {
     let messageArea = $("#messageArea").hide();
-    let fullNamePattern = /([A-Z][a-z]{1,25})+(\s|,|-)([A-Z][a-z]{1,25})+(\s|,|-)*/;
-
+    let fullNamePattern =
+      /([A-Z][a-z]{1,25})+(\s|,|-)([A-Z][a-z]{1,25})+(\s|,|-)*/;
 
     $("#fullName").on("blur", function () {
       if (!fullNamePattern.test($(this).val())) {
         $(this).trigger("focus").trigger("select");
-        messageArea.show().addClass("alert alert-danger").text("Please enter a valid Full Name. This must include at least a Capitalized first name followed by a Capitlalized last name.");
-      }
-      else {
+        messageArea
+          .show()
+          .addClass("alert alert-danger")
+          .text(
+            "Please enter a valid Full Name. This must include at least a Capitalized first name followed by a Capitlalized last name."
+          );
+      } else {
         messageArea.removeAttr("class").hide();
       }
     });
@@ -97,14 +94,19 @@
 
   function testContactNumber() {
     let messageArea = $("#messageArea");
-    let contactNumberPattern = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+    let contactNumberPattern =
+      /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
 
     $("#contactNumber").on("blur", function () {
       if (!contactNumberPattern.test($(this).val())) {
         $(this).trigger("focus").trigger("select");
-        messageArea.show().addClass("alert alert-danger").text("Please enter a valid Contact Number. Country code and area code are both optional");
-      }
-      else {
+        messageArea
+          .show()
+          .addClass("alert alert-danger")
+          .text(
+            "Please enter a valid Contact Number. Country code and area code are both optional"
+          );
+      } else {
         messageArea.removeAttr("class").hide();
       }
     });
@@ -112,14 +114,17 @@
 
   function testEmailAddress() {
     let messageArea = $("#messageArea");
-    let emailAddressPattern = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
+    let emailAddressPattern =
+      /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
 
     $("#emailAddress").on("blur", function () {
       if (!emailAddressPattern.test($(this).val())) {
         $(this).trigger("focus").trigger("select");
-        messageArea.show().addClass("alert alert-danger").text("Please enter a valid Email Address.");
-      }
-      else {
+        messageArea
+          .show()
+          .addClass("alert alert-danger")
+          .text("Please enter a valid Email Address.");
+      } else {
         messageArea.removeAttr("class").hide();
       }
     });
@@ -137,7 +142,11 @@
 
     $("#sendButton").on("click", (event) => {
       if ($("#subscribeCheckbox")[0].checked) {
-        let contact = new core.Contact(fullName.value, contactNumber.value, emailAddress.value);
+        let contact = new core.Contact(
+          fullName.value,
+          contactNumber.value,
+          emailAddress.value
+        );
 
         if (contact.serialize()) {
           let key = contact.FullName.substring(0, 1) + Date.now();
@@ -153,7 +162,6 @@
     authGuard();
 
     if (localStorage.length > 0) {
-
       let contactList = document.getElementById("contactList");
 
       let data = "";
@@ -213,9 +221,8 @@
       $("#fullName").val(contact.FullName);
       $("#contactNumber").val(contact.ContactNumber);
       $("#emailAddress").val(contact.EmailAddress);
-    }
-    else {
-      // modify the page so that it shows "Add Contact" in the header 
+    } else {
+      // modify the page so that it shows "Add Contact" in the header
       $("main>h1").text("Add Contact");
       // modify edit button so that it shows "Add" as well as the appropriate icon
       $("#editButton").html(`<i class="fas fa-plus-circle fa-lg"></i> Add`);
@@ -241,7 +248,6 @@
 
       // return to the contact list
       location.href = "/contact-list";
-
     });
 
     $("#cancelButton").on("click", function () {
@@ -266,7 +272,10 @@
     $.get("./Data/users.json", function (data) {
       // check each user in the users.json file  (linear search)
       for (const user of data.users) {
-        if (username.val() == user.Username && password.val() == user.Password) {
+        if (
+          username.val() == user.Username &&
+          password.val() == user.Password
+        ) {
           newUser.fromJSON(user);
           success = true;
           break;
@@ -284,11 +293,13 @@
         // redirect user to secure area - contact-list.html
         loadHeader("contact-list");
         loadContent("contact-list", ActiveLinkCallBack("contact-list"));
-      }
-      else {
+      } else {
         // display an error message
         username.trigger("focus").trigger("select");
-        messageArea.show().addClass("alert alert-danger").text("Error: Invalid login information");
+        messageArea
+          .show()
+          .addClass("alert alert-danger")
+          .text("Error: Invalid login information");
       }
     });
   }
@@ -297,7 +308,6 @@
    * Displays and Processes the Login page
    */
   function displayLogin() {
-
     $("#loginButton").on("click", function () {
       performLogin();
     });
@@ -317,9 +327,7 @@
     });
   }
 
-  function displayRegister() {
-
-  }
+  function displayRegister() {}
 
   function toggleLogin() {
     // if user is logged in
@@ -328,7 +336,6 @@
       $("#loginListItem").html(
         `<a id="logout" class="nav-link" aria-current="page"><i class="fas fa-sign-out-alt"></i> Logout</a>`
       );
-
 
       $("#logout").on("click", function () {
         // perform logout
@@ -341,7 +348,7 @@
 
       // make it look like each nav item is an active link
       $("#logout").on("mouseover", function () {
-        $(this).css('cursor', 'pointer');
+        $(this).css("cursor", "pointer");
       });
 
       // insert task-list to the navbar after user login
@@ -352,8 +359,7 @@
       $(`<li class="nav-item">
         <a id="contact-list" class="nav-link" aria-current="page"><i class="fas fa-users fa-lg"></i> Contact List</a>
       </li>`).insertBefore("#loginListItem");
-    }
-    else {
+    } else {
       // swap out the login link for logout
       $("#loginListItem").html(
         `<a id="login" class="nav-link" aria-current="page"><i class="fas fa-sign-in-alt"></i> Login</a>`
@@ -369,23 +375,32 @@
     }
   }
 
-  function display404() {
-
-  }
+  function display404() {}
 
   function ActiveLinkCallBack(activeLink) {
     switch (activeLink) {
-      case "home": return displayHome;
-      case "about": return displayAbout;
-      case "projects": return displayProjects;
-      case "services": return displayServices;
-      case "contact": return displayContact;
-      case "contact-list": return displayContactList;
-      case "edit": return displayEdit;
-      case "login": return displayLogin;
-      case "register": return displayRegister;
-      case "404": return display404;
-      case "task-list": return DisplayTaskList;
+      case "home":
+        return displayHome;
+      case "about":
+        return displayAbout;
+      case "projects":
+        return displayProjects;
+      case "services":
+        return displayServices;
+      case "contact":
+        return displayContact;
+      case "contact-list":
+        return displayContactList;
+      case "edit":
+        return displayEdit;
+      case "login":
+        return displayLogin;
+      case "register":
+        return displayRegister;
+      case "404":
+        return display404;
+      case "task-list":
+        return DisplayTaskList;
       default:
         console.error("ERROR: callback does not exist: " + activeLink);
         break;
@@ -414,10 +429,12 @@
       $("#taskList").append(newElement);
       messageArea.removeAttr("class").hide();
       taskInput.val("");
-    }
-    else {
+    } else {
       taskInput.trigger("focus").trigger("select");
-      messageArea.show().addClass("alert alert-danger").text("Please enter a valid Task.");
+      messageArea
+        .show()
+        .addClass("alert alert-danger")
+        .text("Please enter a valid Task.");
     }
   }
 
@@ -455,10 +472,12 @@
             editText.hide();
             $(this).parent().children("#taskText").text(editText.val());
             messageArea.removeAttr("class").hide();
-          }
-          else {
+          } else {
             editText.trigger("focus").trigger("select");
-            messageArea.show().addClass("alert alert-danger").text("Please enter a valid Task.");
+            messageArea
+              .show()
+              .addClass("alert alert-danger")
+              .text("Please enter a valid Task.");
           }
         }
       });
@@ -485,5 +504,4 @@
   window.addEventListener("load", Start);
 
   core.Start = Start;
-
 })(core || (core = {}));
