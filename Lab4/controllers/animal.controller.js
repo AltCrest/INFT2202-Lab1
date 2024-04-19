@@ -1,6 +1,11 @@
 const { model } = require("mongoose");
 const { Animal } = require("../model/Animal");
 
+/**
+ * get all animals, render page
+ * @param {*} req
+ * @param {*} res
+ */
 function loadAnimalData(req, res) {
   Animal.find({}).then(function (animalList) {
     res.render("./animals/all-animals", {
@@ -10,28 +15,53 @@ function loadAnimalData(req, res) {
   });
 }
 
+/**
+ * render home page
+ * @param {*} req
+ * @param {*} res
+ */
 exports.homeView = (req, res) => {
   res.render("./animals/home", {
     pageTitle: "Lab 4 - Home Page",
   });
 };
 
+/**
+ * render all animals page
+ * @param {*} req
+ * @param {*} res
+ */
 exports.animalsView = (req, res) => {
   loadAnimalData(req, res);
 };
 
+/**
+ * render edit animal page
+ * @param {*} req
+ * @param {*} res
+ */
 exports.editView = (req, res) => {
   res.render("./animals/edit-animal", {
     pageTitle: "Edit-Animal",
   });
 };
 
+/**
+ * render enter animal page
+ * @param {*} req
+ * @param {*} res
+ */
 exports.entryView = (req, res) => {
   res.render("./animals/entry-form", {
     pageTitle: "Entry-Form",
   });
 };
 
+/**
+ * handles add animal button
+ * @param {*} req
+ * @param {*} res
+ */
 exports.addAnimal = (req, res) => {
   console.log("clicked");
   try {

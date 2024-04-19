@@ -1,3 +1,7 @@
+// JohnAllen Barrios
+// 100821013
+// 04/19/2024
+
 const express = require("express");
 const pug = require("pug");
 const animal = require("./routes/animal.router");

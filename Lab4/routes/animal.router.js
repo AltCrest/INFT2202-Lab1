@@ -19,6 +19,7 @@ router.get("/edit-animal", editView);
 // Entry Form
 router.get("/entry-form", entryView);
 
+// Add Animal
 router.post("/add-animal", addAnimal);
 
 module.exports = router;
