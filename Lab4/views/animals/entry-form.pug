@@ -1,0 +1,35 @@
+extends ../index
+
+block content
+  h1 Add a New Animal
+
+  form(action="add-animal", method="POST")
+  div.form-group
+    label(for="zoo") Zoo:
+    input#zoo.form-control(type="text", name="zoo", required)
+  div.form-group
+    label(for="scientificName") Scientific Name:
+    input#scientificName.form-control(type="text", name="scientificName", required)
+  div.form-group
+    label(for="commonName") Common Name:
+    input#commonName.form-control(type="text", name="commonName", required)
+  div.form-group
+    label(for="givenName") Given Name:
+    input#givenName.form-control(type="text", name="givenName", required)
+  div.form-group
+    label(for="gender") Gender:
+    select#gender.form-control(name="gender", required)
+      option(value="Male") Male
+      option(value="Female") Female
+  div.form-group
+    label(for="dateOfBirth") Date of Birth:
+    input#dateOfBirth.form-control(type="date", name="dateOfBirth", required)
+  div.form-group
+    label(for="age") Age:
+    input#age.form-control(type="number", name="age", required)
+  div.form-group
+    label(for="isTransportable") Transportable?
+    select#isTransportable.form-control(name="isTransportable", required)
+      option(value="true") Yes
+      option(value="false") No
+  button.btn.btn-primary(type="submit") Add Animal

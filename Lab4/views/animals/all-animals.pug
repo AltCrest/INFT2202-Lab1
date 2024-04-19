@@ -1,0 +1,31 @@
+extends ../index
+block content
+  h1 Zoo Animals
+
+  table.table.table-striped
+      tr
+        th Zoo
+        th Scientific Name
+        th Common Name
+        th Given Name
+        th Gender
+        th Date of Birth
+        th Age
+        th Transportable?
+        th Edit
+      each animal in animals
+        tr
+          td=animal.zoo
+          td=animal.scientificName
+          td=animal.commonName
+          td=animal.givenName
+          td=animal.gender
+          td=animal.dateOfBirth.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })  
+          td=animal.age
+          td
+            if animal.isTransportable
+              span.badge.bg-success Yes
+            else
+              span.badge.bg-danger No
+          td
+            a(href=(`/edit-animal/${animal._id}`), class="btn btn-sm btn-primary") Edit
